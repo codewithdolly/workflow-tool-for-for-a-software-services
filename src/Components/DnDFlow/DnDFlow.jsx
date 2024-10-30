@@ -61,7 +61,8 @@ const DnDFlow = () => {
   const lastNodePosition = useRef(null);
 
   const onConnect = useCallback(
-    (params) => setEdges((eds) => addEdge({ ...params, type: "customEdge" }, eds)),
+    (params) =>
+      setEdges((eds) => addEdge({ ...params, type: "customEdge" }, eds)),
     []
   );
 
@@ -85,7 +86,10 @@ const DnDFlow = () => {
         y: containerBounds.height / 2 - containerBounds.top,
       });
 
-      const position = alignYPosition(reactFlowBounds, lastNodePosition.current); // Using alignYPosition with default gap
+      const position = alignYPosition(
+        reactFlowBounds,
+        lastNodePosition.current
+      ); 
       let parsedType = JSON.parse(type);
       let nodeData = nodeObjects.find((node) => node.id === parsedType.id);
 
